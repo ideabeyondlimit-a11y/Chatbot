@@ -1,49 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Eynthra Chatbot</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eynthra AI Assistant</title>
+
   <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #16a34a;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Inter", Arial, sans-serif;
+    }
+
     body {
-      font-family: Arial;
-      background: #f4f4f4;
+      background: linear-gradient(135deg, #e0e7ff, #f8fafc);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    #chat {
-      width: 400px;
-      margin: 50px auto;
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
+    .chat-container {
+      width: 420px;
+      max-width: 95%;
+      height: 600px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    #messages {
-      height: 300px;
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary), #1e40af);
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .chat-header span {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .messages {
+      flex: 1;
+      padding: 16px;
       overflow-y: auto;
+      background: var(--bg);
     }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+    .message {
+      max-width: 80%;
+      margin-bottom: 12px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      line-height: 1.4;
+      font-size: 14px;
+      animation: fadeIn 0.3s ease-in;
     }
 
     .user {
-      color: #2563eb;
+      background: var(--primary);
+      color: white;
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
     }
 
     .bot {
-      color: #16a34a;
+      background: #e2e8f0;
+      color: var(--text);
+      margin-right: auto;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-footer {
+      padding: 12px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-footer input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5f5;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .chat-footer button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .chat-footer button:hover {
+      background: #1d4ed8;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scrollbar */
+    .messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .messages::-webkit-scrollbar-thumb {
+      background: #c7d2fe;
+      border-radius: 10px;
     }
   </style>
 </head>
 
 <body>
 
-  <div id="chat">
-    <h3>Eynthra AI Assistant</h3>
-    <div id="messages"></div>
-    <input id="userInput" placeholder="Ask something about Eynthra..." />
+  <div class="chat-container">
+    <div class="chat-header">
+      <h3>Eynthra AI Assistant</h3>
+      <span>Smart CRM • Lead Automation</span>
+    </div>
+
+    <div id="messages" class="messages">
+      <div class="message bot">
+        👋 Hello! I’m the Eynthra AI Assistant.<br />
+        Ask me about features, pricing, demo, events, or support.
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <input id="userInput" placeholder="Ask something about Eynthra..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
   </div>
 
   <script src="chatbot.js"></script>
