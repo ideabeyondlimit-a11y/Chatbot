@@ -1,12 +1,54 @@
 let intents = [];
 
-// Load intents JSON
-fetch("eynthra_intent_level_knowledge.json")
+// --------------------
+// SYNONYM / SIMILAR WORD MAP
+// --------------------
+const synonymMap = {
+  pricing: ["price", "prices", "amount", "cost", "fees", "fee", "opricing", "rate", "charges", "plans"],
+  features: ["feature", "featurea", "functions", "capabilities", "modules", "tools", "options"],
+  privacy: ["security", "data", "gdpr", "dpdp", "dpdpa", "protection", "policy"],
+  demo: ["trial", "sample", "preview", "test", "walkthrough"],
+  support: ["help", "contact", "customer", "care", "assistance"],
+  product: ["service", "services", "platform", "software", "system"],
+  events: ["event", "expo", "conference", "webinar", "meet"]
+};
+
+// --------------------
+// FUZZY MATCH FUNCTION
+// --------------------
+function isSimilar(a, b) {
+  if (!a || !b) return false;
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 2) return false;
+
+  let matches = 0;
+  const minLen = Math.min(a.length, b.length);
+
+  for (let i = 0; i < minLen; i++) {
+    if (a[i] === b[i]) matches++;
+  }
+
+  return matches / Math.max(a.length, b.length) >= 0.7;
+}
+
+// --------------------
+// LOAD INTENTS JSON
+// --------------------
+fetch("eynthra_intent_level_knowledge_FULL_MERGED[2].json")
   .then(res => res.json())
   .then(data => {
     intents = data.intents || [];
     appendBotMessage(
-      "👋 Hello! I’m the Eynthra AI Assistant.\nAsk me about features, pricing, demo, events, or support."
+      "👋 <b>Hello! I’m the Eynthra AI Assistant.</b><br><br>" +
+      "You can ask me about:<br>" +
+      "• Product & Features<br>" +
+      "• Pricing & Free Trial<br>" +
+      "• Demo & Events<br>" +
+      "• Security, Privacy & Compliance<br>" +
+      "• Support & Contact"
     );
   })
   .catch(() => {
@@ -16,11 +58,11 @@ fetch("eynthra_intent_level_knowledge.json")
 const messages = document.getElementById("messages");
 const input = document.getElementById("userInput");
 
-// Send on Enter key
-input.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    sendMessage();
-  }
+// --------------------
+// SEND ON ENTER
+// --------------------
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") sendMessage();
 });
 
 function sendMessage() {
@@ -31,71 +73,88 @@ function sendMessage() {
   input.value = "";
 
   setTimeout(() => {
-    const reply = getBotReply(userText);
-    appendBotMessage(reply);
+    const replies = getBotReplies(userText);
+    replies.forEach(r => appendBotMessage(r));
   }, 300);
 }
 
 // --------------------
-// BOT LOGIC
+// BOT LOGIC (SYNONYM + FUZZY)
 // --------------------
-function getBotReply(text) {
-  const msg = text.toLowerCase();
+function getBotReplies(text) {
+  const msg = text.toLowerCase().trim();
+  const words = msg.split(/\s+/);
 
-  // 👋 Greetings
-  if (["hi", "hello", "hey", "good morning", "good evening"].includes(msg)) {
-    return "👋 Hello! How can I help you with Eynthra today?";
+  // Greetings
+  if (["hi", "hello", "hey"].includes(msg)) {
+    return ["👋 Hello! How can I help you with Eynthra today?"];
   }
 
-  // 🙏 Thanks
+  // Thanks
   if (["thanks", "thank you", "thx"].includes(msg)) {
-    return "😊 You’re welcome! Let me know if you need anything else.";
+    return ["😊 You’re welcome! Let me know if you need anything else."];
   }
 
-  // 🔑 Keyword → Category Map
-  const keywordMap = {
-    product: ["service", "services", "features", "feature", "product", "crm", "software"],
-    trial: ["pricing", "price", "cost", "fees", "plans", "trial", "free"],
-    demo: ["demo", "book demo", "live demo"],
-    support: ["support", "help", "contact", "customer care"],
-    security: ["security", "data", "privacy", "gdpr", "dpdpa"],
-    events: ["event", "events", "expo", "conference"]
-  };
-
-  // 1️⃣ Direct keyword → category answer
-  for (let category in keywordMap) {
-    if (keywordMap[category].some(k => msg.includes(k))) {
-      const intent = intents.find(i => i.category === category);
-      if (intent) return intent.answer;
-    }
-  }
-
-  // 2️⃣ Keyword scoring against questions
-  let bestMatch = null;
-  let highestScore = 0;
-
-  const userWords = msg.split(/\s+/);
+  let scoredIntents = [];
 
   for (let intent of intents) {
     let score = 0;
-    const questionWords = intent.question.toLowerCase().split(/\s+/);
 
-    for (let w of userWords) {
-      if (questionWords.includes(w)) score++;
+    const question = intent.question.toLowerCase();
+    const category = intent.category.toLowerCase();
+    const keywords = (intent.keywords || []).map(k => k.toLowerCase());
+
+    for (let w of words) {
+      // Keyword match
+      for (let kw of keywords) {
+        if (isSimilar(w, kw)) score += 5;
+      }
+
+      // Category match
+      if (isSimilar(w, category)) score += 4;
+
+      // Synonym match
+      for (let key in synonymMap) {
+        if (synonymMap[key].some(s => isSimilar(w, s)) && isSimilar(key, category)) {
+          score += 6;
+        }
+      }
+
+      // Question fallback
+      if (question.includes(w)) score += 1;
     }
 
-    if (score > highestScore) {
-      highestScore = score;
-      bestMatch = intent;
+    if (score > 0) scoredIntents.push({ intent, score });
+  }
+
+  scoredIntents.sort((a, b) => b.score - a.score);
+
+  const answers = [];
+  const usedCategories = new Set();
+
+  for (let item of scoredIntents) {
+    if (!usedCategories.has(item.intent.category)) {
+      answers.push(item.intent.answer);
+      usedCategories.add(item.intent.category);
     }
+    if (answers.length === 3) break;
   }
 
-  if (bestMatch && highestScore > 0) {
-    return bestMatch.answer;
+  // Fallback
+  if (answers.length === 0) {
+    return [
+      `
+❓ I couldn’t find an exact answer.<br><br>
+Try asking about:<br>
+• <a href="https://eynthrasolution.com/product" target="_blank">Product</a><br>
+• <a href="https://eynthrasolution.com/pricing" target="_blank">Pricing</a><br>
+• <a href="https://eynthrasolution.com/features" target="_blank">Features</a><br>
+• <a href="https://eynthrasolution.com/privacy" target="_blank">Privacy & Security</a>
+      `
+    ];
   }
 
-  // ❌ Fallback
-  return "❓ I couldn’t find an exact answer. You can ask about features, pricing, demo, events, security, or support.";
+  return answers;
 }
 
 // --------------------
@@ -112,7 +171,16 @@ function appendUserMessage(text) {
 function appendBotMessage(text) {
   const div = document.createElement("div");
   div.className = "message bot";
-  div.innerText = text;
+
+  if (text.includes("<a ")) {
+    div.innerHTML = text;
+  } else {
+    div.innerHTML = text.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+  }
+
   messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
 }
