@@ -95,7 +95,8 @@ function getBotReplies(text) {
     return ["😊 You’re welcome! Let me know if you need anything else."];
   }
 
-  let scoredIntents = [];
+  let bestIntent = null;
+  let highestScore = 0;
 
   for (let intent of intents) {
     let score = 0;
@@ -115,7 +116,10 @@ function getBotReplies(text) {
 
       // Synonym match
       for (let key in synonymMap) {
-        if (synonymMap[key].some(s => isSimilar(w, s)) && isSimilar(key, category)) {
+        if (
+          synonymMap[key].some(s => isSimilar(w, s)) &&
+          isSimilar(key, category)
+        ) {
           score += 6;
         }
       }
@@ -124,38 +128,30 @@ function getBotReplies(text) {
       if (question.includes(w)) score += 1;
     }
 
-    if (score > 0) scoredIntents.push({ intent, score });
+    if (score > highestScore) {
+      highestScore = score;
+      bestIntent = intent;
+    }
   }
 
-  scoredIntents.sort((a, b) => b.score - a.score);
-
-  const answers = [];
-  const usedCategories = new Set();
-
-  for (let item of scoredIntents) {
-    if (!usedCategories.has(item.intent.category)) {
-      answers.push(item.intent.answer);
-      usedCategories.add(item.intent.category);
-    }
-    if (answers.length === 3) break;
+  // ✅ Return ONLY ONE BEST ANSWER
+  if (bestIntent && highestScore > 0) {
+    return [bestIntent.answer];
   }
 
   // Fallback
-  if (answers.length === 0) {
-    return [
-      `
+  return [
+    `
 ❓ I couldn’t find an exact answer.<br><br>
 Try asking about:<br>
 • <a href="https://eynthrasolution.com/product" target="_blank">Product</a><br>
 • <a href="https://eynthrasolution.com/pricing" target="_blank">Pricing</a><br>
 • <a href="https://eynthrasolution.com/features" target="_blank">Features</a><br>
-• <a href="https://eynthrasolution.com/privacy" target="_blank">Privacy & Security</a>
-      `
-    ];
-  }
-
-  return answers;
+• <a href="https://eynthrasolution.com/privacy-policy" target="_blank">Privacy & Security</a>
+    `
+  ];
 }
+
 
 // --------------------
 // MESSAGE RENDERING
