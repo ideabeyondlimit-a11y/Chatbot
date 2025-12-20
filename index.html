@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Eynthra Chatbot</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+    }
+
+    #chat {
+      width: 400px;
+      margin: 50px auto;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    #messages {
+      height: 300px;
+      overflow-y: auto;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .user {
+      color: #2563eb;
+    }
+
+    .bot {
+      color: #16a34a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="chat">
+    <h3>Eynthra AI Assistant</h3>
+    <div id="messages"></div>
+    <input id="userInput" placeholder="Ask something about Eynthra..." />
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+
+</html>
