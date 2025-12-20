@@ -1,0 +1,921 @@
+{
+  "total_intents": 104,
+  "intents": [
+    {
+      "intent_id": "INTENT_0001",
+      "question": "What exactly does Eynthra do?",
+      "answer": "Eynthra Solution helps businesses instantly capture, organize, and manage leads from physical and digital business cards using AI-powered Smart CRM technology.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0002",
+      "question": "Is Eynthra a CRM or a scanner app?",
+      "answer": "Eynthra is a complete Smart CRM, not just a scanner. It includes AI card scanning, lead management, follow-ups, analytics, and team collaboration features.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0003",
+      "question": "What problem does Eynthra solve for sales teams?",
+      "answer": "Eynthra removes manual data entry, Excel tracking, lost business cards, and missed follow-ups, helping sales teams convert contacts into revenue faster.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0004",
+      "question": "Why should I use Eynthra instead of Excel?",
+      "answer": "Unlike Excel, Eynthra automatically captures leads, tracks interactions, assigns owners, and sends follow-up reminders\u2014saving time and preventing lead loss.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0005",
+      "question": "Is Eynthra only for big companies?",
+      "answer": "No. Eynthra is designed for businesses of all sizes, including startups, SMEs, and individual professionals.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0006",
+      "question": "Can freelancers use Eynthra?",
+      "answer": "Yes, freelancers and consultants use Eynthra to manage contacts, track leads, and follow up professionally after meetings and networking events.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0007",
+      "question": "Is Eynthra useful for small businesses?",
+      "answer": "Absolutely. Eynthra helps small businesses organize leads, improve follow-ups, and grow sales without complex CRM setups.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0008",
+      "question": "Is this software or a mobile app?",
+      "answer": "Eynthra is a cloud-based Smart CRM accessible through supported platforms, designed for easy use across devices.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0009",
+      "question": "Do I need technical knowledge to use Eynthra?",
+      "answer": "No technical knowledge is required. Eynthra is designed to be simple and user-friendly for non-technical users.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0010",
+      "question": "Is Eynthra cloud-based?",
+      "answer": "Yes, Eynthra is a secure cloud-based CRM that allows access to your leads anytime, anywhere.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0011",
+      "question": "Is Eynthra suitable for B2B sales?",
+      "answer": "Yes, Eynthra is ideal for B2B sales teams that collect leads through meetings, events, and networking activities.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0012",
+      "question": "Can Eynthra be used daily?",
+      "answer": "Yes, Eynthra is built for daily use to capture leads, manage follow-ups, and monitor sales activities efficiently.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0013",
+      "question": "Is Eynthra an Indian company?",
+      "answer": "Yes, Eynthra Solution LLP is an India-based company focused on building AI-driven CRM solutions.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0014",
+      "question": "Where is Eynthra based?",
+      "answer": "Eynthra Solution LLP is headquartered in India.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0015",
+      "question": "Is Eynthra global?",
+      "answer": "Yes, Eynthra can be used globally by businesses looking to manage leads from offline and online interactions.",
+      "category": "product"
+    },
+    {
+      "intent_id": "INTENT_0016",
+      "question": "How do I scan a business card?",
+      "answer": "You can scan a business card by using Eynthra\u2019s built-in AI scanning feature, which captures card details and converts them into structured leads automatically.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0017",
+      "question": "Can I scan visiting cards?",
+      "answer": "Yes, Eynthra supports scanning visiting cards and instantly converts them into CRM lead records.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0018",
+      "question": "Does it scan handwritten cards?",
+      "answer": "Eynthra can detect handwritten text where clarity allows, but printed business cards provide the highest accuracy.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0019",
+      "question": "Can I upload card images?",
+      "answer": "Yes, you can upload images of business cards, and Eynthra will process them using its AI OCR engine.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0020",
+      "question": "Can I scan cards from my phone?",
+      "answer": "Yes, Eynthra allows scanning business cards directly using your phone camera.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0021",
+      "question": "Does scanning work offline?",
+      "answer": "Scanning requires an active internet connection to process and store lead data securely in the cloud.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0022",
+      "question": "How fast is the scanning process?",
+      "answer": "Scanning and data extraction typically take just a few seconds per card.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0023",
+      "question": "Is the scanning accurate?",
+      "answer": "Yes, Eynthra provides high accuracy using its proprietary AI OCR model and controlled processing environment.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0024",
+      "question": "Does it use OCR?",
+      "answer": "Yes, Eynthra uses its own in-house AI-powered OCR technology to extract card details accurately.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0025",
+      "question": "Is AI used in scanning?",
+      "answer": "Yes, AI is used to recognize, validate, and structure contact information from business cards.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0026",
+      "question": "Does Eynthra use Google OCR?",
+      "answer": "No, Eynthra does not rely on Google OCR or any third-party OCR services.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0027",
+      "question": "Does Eynthra use OpenAI?",
+      "answer": "No, Eynthra uses its own in-house AI models with zero dependency on OpenAI or external AI platforms.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0028",
+      "question": "Is scanning secure?",
+      "answer": "Yes, all scanned data is processed securely and stored in an encrypted environment.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0029",
+      "question": "Can I scan multiple cards in a day?",
+      "answer": "Yes, you can scan multiple business cards daily without any issues.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0030",
+      "question": "Is there a scan limit?",
+      "answer": "Scan limits, if any, depend on your selected plan. Please refer to your subscription details for exact limits.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0031",
+      "question": "What happens after a lead is created?",
+      "answer": "Once a lead is created, it is stored inside the Eynthra CRM where you can view details, assign ownership, and start follow-up activities.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0032",
+      "question": "Can I manage all my leads in one place?",
+      "answer": "Yes, Eynthra provides a centralized dashboard to manage, track, and update all your leads in one place.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0033",
+      "question": "Can I assign leads to team members?",
+      "answer": "Yes, admins and managers can assign leads to specific team members for better ownership and accountability.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0034",
+      "question": "Can I track follow-ups?",
+      "answer": "Yes, Eynthra allows you to schedule, track, and manage follow-ups so no lead is forgotten.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0035",
+      "question": "Does Eynthra support lead status tracking?",
+      "answer": "Yes, leads can be marked with statuses such as new, contacted, in progress, or closed based on your sales workflow.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0036",
+      "question": "Can I add notes to leads?",
+      "answer": "Yes, you can add notes, comments, and interaction history to each lead for better context.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0037",
+      "question": "Can I filter or search leads?",
+      "answer": "Yes, Eynthra allows you to filter and search leads using multiple criteria such as name, status, or assigned user.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0038",
+      "question": "Can multiple team members access the same lead?",
+      "answer": "Yes, team members with appropriate permissions can access shared leads for collaboration.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0039",
+      "question": "Is there activity history for each lead?",
+      "answer": "Yes, Eynthra maintains a complete activity timeline showing scans, updates, and follow-ups for each lead.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0040",
+      "question": "Can I export leads?",
+      "answer": "Yes, leads can be exported in supported formats for reporting or external use.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0041",
+      "question": "Can I import leads from other sources?",
+      "answer": "Yes, Eynthra supports importing leads from external sources to centralize your data.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0042",
+      "question": "Who owns the lead data?",
+      "answer": "You retain full ownership of all your lead data. Eynthra only processes data on your behalf.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0043",
+      "question": "Can leads be edited after creation?",
+      "answer": "Yes, you can edit lead details anytime to keep information accurate and up to date.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0044",
+      "question": "Can I delete leads?",
+      "answer": "Yes, authorized users can delete leads when they are no longer required.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0045",
+      "question": "Does Eynthra support team roles and permissions?",
+      "answer": "Yes, Eynthra supports role-based access control for admins, managers, and team members.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0046",
+      "question": "How does Eynthra help sales teams?",
+      "answer": "Eynthra helps sales teams instantly capture leads, track follow-ups, and close deals faster without manual data entry or Excel tracking.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0047",
+      "question": "Will I lose leads after events or meetings?",
+      "answer": "No. Eynthra ensures every scanned or uploaded business card is saved as a structured lead inside the CRM.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0048",
+      "question": "How do I follow up with leads?",
+      "answer": "You can schedule follow-ups, add notes, and track communication history directly within Eynthra.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0049",
+      "question": "Can I see which leads are hot or cold?",
+      "answer": "Yes, leads can be updated with statuses and notes so sales teams can prioritize high-potential prospects.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0050",
+      "question": "Can sales managers monitor team performance?",
+      "answer": "Yes, managers can view assigned leads, activities, and follow-up progress for better visibility and control.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0051",
+      "question": "Can multiple salespeople work on the same leads?",
+      "answer": "Yes, shared access and role-based permissions allow collaboration without data conflicts.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0052",
+      "question": "How fast can I contact a new lead?",
+      "answer": "Leads are available in the CRM immediately after scanning, allowing instant follow-ups.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0053",
+      "question": "Does Eynthra help improve conversion rates?",
+      "answer": "Yes, timely follow-ups, organized data, and activity tracking significantly improve lead conversion.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0054",
+      "question": "Can I track sales activity history?",
+      "answer": "Yes, every lead maintains a complete activity timeline including scans, edits, notes, and follow-ups.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0055",
+      "question": "Is Eynthra suitable for field sales teams?",
+      "answer": "Yes, Eynthra is ideal for field sales teams who collect leads during meetings, site visits, and networking events.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0056",
+      "question": "Can Eynthra replace Excel for sales tracking?",
+      "answer": "Yes, Eynthra eliminates the need for Excel by providing automated lead capture, tracking, and follow-up management.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0057",
+      "question": "How does Eynthra reduce manual work for sales?",
+      "answer": "Eynthra automates data capture from business cards, reducing manual typing and administrative effort.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0058",
+      "question": "How do I contact support?",
+      "answer": "You can contact Eynthra support at info@eynthrasolution.com or call +91 99797 06651.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0059",
+      "question": "Is there customer care?",
+      "answer": "Yes, Eynthra provides dedicated customer care via email and phone support.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0060",
+      "question": "Do you offer onboarding help?",
+      "answer": "Yes, Eynthra offers onboarding assistance to help teams get started smoothly.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0061",
+      "question": "Where can I get help?",
+      "answer": "You can get help by contacting Eynthra support via email or phone during business hours.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0062",
+      "question": "Is support available after purchase?",
+      "answer": "Yes, full customer support is available even after purchase.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0063",
+      "question": "How do I get started?",
+      "answer": "You can get started by signing up with your email and starting the free trial.",
+      "category": "demo"
+    },
+    {
+      "intent_id": "INTENT_0064",
+      "question": "How do I sign up?",
+      "answer": "You can sign up on the Eynthra website using your email address.",
+      "category": "demo"
+    },
+    {
+      "intent_id": "INTENT_0065",
+      "question": "Can I book a demo?",
+      "answer": "Yes, you can book a live demo to see Eynthra in action.",
+      "category": "demo"
+    },
+    {
+      "intent_id": "INTENT_0066",
+      "question": "Is there a live demo?",
+      "answer": "Yes, Eynthra offers live demos for interested users.",
+      "category": "demo"
+    },
+    {
+      "intent_id": "INTENT_0067",
+      "question": "Can someone guide me?",
+      "answer": "Yes, our team can guide you through a live demo or onboarding session.",
+      "category": "demo"
+    },
+    {
+      "intent_id": "INTENT_0068",
+      "question": "Is Eynthra suitable for expos and conferences?",
+      "answer": "Yes, Eynthra is designed specifically for expos, conferences, trade shows, and networking events to capture and manage leads efficiently.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0069",
+      "question": "Can I tag leads by event?",
+      "answer": "Yes, leads can be tagged with event names, making it easy to filter and analyze event-specific performance.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0070",
+      "question": "Can I track post-event follow-ups?",
+      "answer": "Yes, Eynthra allows you to schedule and track follow-ups after events so no lead is missed.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0071",
+      "question": "Can exhibitors use Eynthra for one-time events?",
+      "answer": "Yes, Eynthra supports one-time and event-based usage for exhibitors and short-term events.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0072",
+      "question": "Can I export event leads later?",
+      "answer": "Yes, event leads can be exported anytime, even after the event has ended.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0073",
+      "question": "Does Eynthra send automatic follow-ups?",
+      "answer": "Yes, Eynthra supports automated follow-up workflows to help sales teams engage leads on time.",
+      "category": "automation"
+    },
+    {
+      "intent_id": "INTENT_0074",
+      "question": "What types of follow-ups are supported?",
+      "answer": "Eynthra supports email-based follow-ups and reminder notifications.",
+      "category": "automation"
+    },
+    {
+      "intent_id": "INTENT_0075",
+      "question": "Can managers track follow-up performance?",
+      "answer": "Yes, managers can view dashboards showing follow-up activity, response rates, and conversions.",
+      "category": "automation"
+    },
+    {
+      "intent_id": "INTENT_0076",
+      "question": "Can I invite my team?",
+      "answer": "Yes, you can invite team members via email to collaborate inside Eynthra.",
+      "category": "team"
+    },
+    {
+      "intent_id": "INTENT_0077",
+      "question": "What roles are available?",
+      "answer": "Eynthra supports Admin, Manager, and Agent roles.",
+      "category": "team"
+    },
+    {
+      "intent_id": "INTENT_0078",
+      "question": "Can I control access permissions?",
+      "answer": "Yes, Eynthra provides role-based access control to manage permissions securely.",
+      "category": "team"
+    },
+    {
+      "intent_id": "INTENT_0079",
+      "question": "What analytics are available?",
+      "answer": "Dashboards display lead sources, conversions, event performance, and team productivity.",
+      "category": "analytics"
+    },
+    {
+      "intent_id": "INTENT_0080",
+      "question": "Can I export reports?",
+      "answer": "Yes, reports can be exported in CSV or Excel formats.",
+      "category": "analytics"
+    },
+    {
+      "intent_id": "INTENT_0081",
+      "question": "Is there a free trial?",
+      "answer": "Yes, Eynthra offers a 7-day free trial so you can explore features before purchasing.",
+      "category": "pricing"
+    },
+    {
+      "intent_id": "INTENT_0082",
+      "question": "Is a credit card required for the trial?",
+      "answer": "No, a credit card is not required to start the free trial.",
+      "category": "pricing"
+    },
+    {
+      "intent_id": "INTENT_0083",
+      "question": "What pricing plans are available?",
+      "answer": "Eynthra offers individual, team, business, and event-based plans. Please refer to the pricing page for details.",
+      "category": "pricing"
+    },
+    {
+      "intent_id": "INTENT_0084",
+      "question": "Are payments refundable?",
+      "answer": "Payments are non-refundable unless explicitly mentioned in the refund policy.",
+      "category": "pricing"
+    },
+    {
+      "intent_id": "INTENT_0085",
+      "question": "Is Eynthra DPDPA compliant?",
+      "answer": "Yes, Eynthra complies with India\u2019s Digital Personal Data Protection Act (DPDPA).",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0086",
+      "question": "Is data encrypted?",
+      "answer": "Yes, data is encrypted both at rest and in transit.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0087",
+      "question": "Is my data shared with third parties?",
+      "answer": "No, Eynthra does not sell or share customer data with third-party platforms.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0088",
+      "question": "Can I delete my data?",
+      "answer": "Yes, users can request data export or deletion as per policy.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0089",
+      "question": "Who is responsible for data consent?",
+      "answer": "The user uploading or scanning data is responsible for obtaining lawful consent.",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0090",
+      "question": "What happens after my subscription expires?",
+      "answer": "Accounts move to read-only mode and may be deleted after the retention period.",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0091",
+      "question": "Which law governs Eynthra?",
+      "answer": "Eynthra is governed by Indian law, with jurisdiction in Surat, Gujarat.",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0092",
+      "question": "How do I contact support?",
+      "answer": "You can contact support at info@eynthrasolution.com or +91 99797 06651.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0093",
+      "question": "What are support response times?",
+      "answer": "Support responses are provided during standard business hours.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0094",
+      "question": "How is Eynthra different from Popl or CamCard?",
+      "answer": "Unlike card-only tools, Eynthra provides a full AI-powered CRM with event workflows and complete data ownership.",
+      "category": "comparison"
+    },
+    {
+      "intent_id": "INTENT_0095",
+      "question": "Can Eynthra replace Excel for lead tracking?",
+      "answer": "Yes, Eynthra is built to fully eliminate Excel-based lead management.",
+      "category": "comparison"
+    },
+    {
+      "intent_id": "INTENT_0096",
+      "question": "How do I get started?",
+      "answer": "Sign up using your email, start the free trial, and begin scanning leads immediately.",
+      "category": "onboarding"
+    },
+    {
+      "intent_id": "INTENT_0097",
+      "question": "How long does setup take?",
+      "answer": "Most users are onboarded and ready to use Eynthra within minutes.",
+      "category": "onboarding"
+    },
+    {
+      "intent_id": "INTENT_0098",
+      "question": "Can I book a demo?",
+      "answer": "Yes, you can book a live demo to see Eynthra in action.",
+      "category": "demo"
+    },
+    {
+      "intent_id": "INTENT_0099",
+      "question": "Is Eynthra compliant with Google OAuth policies?",
+      "answer": "Yes. Eynthra follows Google OAuth and email data usage guidelines. Full disclosure is available here: https://eynthrasolution.com/email-integration",
+      "category": "compliance"
+    },
+    {
+      "intent_id": "INTENT_0100",
+      "question": "Does Eynthra read or store my emails?",
+      "answer": "No. Eynthra does not read, store, or analyze email content. Email access is used only for authentication and essential communication.",
+      "category": "compliance"
+    },
+    {
+      "intent_id": "INTENT_0101",
+      "question": "Where can I read the Privacy Policy?",
+      "answer": "You can read the Privacy Policy here: https://eynthrasolution.com/privacy",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0102",
+      "question": "Where can I read the Terms & Conditions?",
+      "answer": "Terms & Conditions are available here: https://eynthrasolution.com/terms",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0103",
+      "question": "Is Eynthra compliant with India\u2019s DPDP Act?",
+      "answer": "Yes. Eynthra complies with India\u2019s Digital Personal Data Protection Act (DPDP). Details: https://eynthrasolution.com/privacy",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0104",
+      "question": "Where can I see pricing and plans?",
+      "answer": "Pricing details are available here: https://eynthrasolution.com/pricing",
+      "category": "pricing"
+    },
+    {
+      "intent_id": "INTENT_0105",
+      "question": "Is Eynthra safe to use for my company?",
+      "answer": "Yes. Eynthra follows strong security practices, encrypts data, and never sells or misuses customer information.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0106",
+      "question": "Can enterprises trust Eynthra with sensitive client data?",
+      "answer": "Yes. You retain full ownership of your data, and Eynthra processes it securely as per its privacy and data protection policies.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0107",
+      "question": "Does Eynthra sell or share user data?",
+      "answer": "No. Eynthra does not sell, rent, or share user data with third parties.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0108",
+      "question": "Where is Eynthra hosted?",
+      "answer": "Eynthra is hosted on secure cloud infrastructure following industry-standard security and reliability practices.",
+      "category": "security"
+    },
+    {
+      "intent_id": "INTENT_0109",
+      "question": "Can I export my data anytime?",
+      "answer": "Yes. Users can export leads and reports anytime from the CRM.",
+      "category": "data"
+    },
+    {
+      "intent_id": "INTENT_0110",
+      "question": "What happens to my data if I cancel my subscription?",
+      "answer": "You can export your data before cancellation. Data may be deleted after retention periods as defined in policy.",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0111",
+      "question": "Is Eynthra suitable for startups?",
+      "answer": "Yes. Eynthra is designed for startups, small teams, and growing businesses.",
+      "category": "business"
+    },
+    {
+      "intent_id": "INTENT_0112",
+      "question": "Is Eynthra suitable for large enterprises?",
+      "answer": "Yes. Eynthra supports scalability, role-based access, analytics, and compliance required by enterprise teams.",
+      "category": "business"
+    },
+    {
+      "intent_id": "INTENT_0113",
+      "question": "Can multiple teams use Eynthra under one account?",
+      "answer": "Yes. Multiple teams can collaborate with role-based permissions and controlled access.",
+      "category": "team"
+    },
+    {
+      "intent_id": "INTENT_0114",
+      "question": "Can managers track team performance?",
+      "answer": "Yes. Managers can monitor lead assignments, follow-ups, and team activity using dashboards.",
+      "category": "analytics"
+    },
+    {
+      "intent_id": "INTENT_0115",
+      "question": "Does Eynthra help reduce lead loss?",
+      "answer": "Yes. Eynthra ensures every scanned or uploaded contact is stored, tracked, and followed up properly.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0116",
+      "question": "How quickly can I follow up after scanning a card?",
+      "answer": "Leads are available instantly after scanning, allowing immediate follow-up.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0117",
+      "question": "Does Eynthra help improve sales conversions?",
+      "answer": "Yes. Timely follow-ups, organized data, and activity tracking help improve conversion rates.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0118",
+      "question": "Can Eynthra be used daily by sales teams?",
+      "answer": "Yes. Eynthra is built for daily use by sales and business development teams.",
+      "category": "usage"
+    },
+    {
+      "intent_id": "INTENT_0119",
+      "question": "Do I need training to use Eynthra?",
+      "answer": "No. Eynthra is user-friendly and requires no technical training. Optional onboarding support is available.",
+      "category": "usage"
+    },
+    {
+      "intent_id": "INTENT_0120",
+      "question": "Is onboarding support available?",
+      "answer": "Yes. Eynthra provides onboarding assistance to help teams get started smoothly.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0121",
+      "question": "Is customer support available after purchase?",
+      "answer": "Yes. Full customer support is available even after purchasing a plan.",
+      "category": "support"
+    },
+    {
+      "intent_id": "INTENT_0122",
+      "question": "Is Eynthra compliant with privacy laws?",
+      "answer": "Yes. Eynthra complies with applicable privacy and data protection laws. See: https://eynthrasolution.com/privacy",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0123",
+      "question": "Where can I read the Data Protection Policy?",
+      "answer": "You can read the Data Protection Policy here: https://eynthrasolution.com/privacy",
+      "category": "legal"
+    },
+    {
+      "intent_id": "INTENT_0124",
+      "question": "Where can I learn more about Eynthra’s features?",
+      "answer": "You can explore all features here: https://eynthrasolution.com/features",
+      "category": "navigation"
+    },
+    {
+      "intent_id": "INTENT_0125",
+      "question": "Where can I learn about Eynthra’s AI and OCR technology?",
+      "answer": "Learn more about our AI & OCR technology here: https://eynthrasolution.com/ai-ocr",
+      "category": "navigation"
+    },
+    {
+      "intent_id": "INTENT_0126",
+      "question": "Where can I learn about event lead capture?",
+      "answer": "Event lead capture details are available here: https://eynthrasolution.com/event-lead-capture",
+      "category": "navigation"
+    },
+    {
+      "intent_id": "INTENT_0127",
+      "question": "Is Eynthra suitable for exhibitions and trade shows?",
+      "answer": "Yes. Eynthra is widely used by exhibitors and trade show participants.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0128",
+      "question": "Can I use Eynthra for one-day or short-term events?",
+      "answer": "Yes. Eynthra supports short-term and event-based usage.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0129",
+      "question": "Does Eynthra work internationally?",
+      "answer": "Yes. Eynthra can be used globally by teams and businesses.",
+      "category": "general"
+    },
+    {
+      "intent_id": "INTENT_0130",
+      "question": "Is Eynthra an Indian company?",
+      "answer": "Yes. Eynthra Solution LLP is an India-based company.",
+      "category": "general"
+    },
+    {
+      "intent_id": "INTENT_0131",
+      "question": "Is Eynthra easy to use for non-technical users?",
+      "answer": "Yes. Eynthra is designed for non-technical users with a simple, intuitive interface and minimal setup.",
+      "category": "usage"
+    },
+    {
+      "intent_id": "INTENT_0132",
+      "question": "Do I need any technical setup before using Eynthra?",
+      "answer": "No. You can start using Eynthra immediately after signing up without any technical setup.",
+      "category": "usage"
+    },
+    {
+      "intent_id": "INTENT_0133",
+      "question": "Can salespeople use Eynthra on their own?",
+      "answer": "Yes. Individual salespeople can use Eynthra independently to scan cards, manage leads, and follow up.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0134",
+      "question": "Can Eynthra replace visiting card diaries or notebooks?",
+      "answer": "Yes. Eynthra digitally replaces physical card storage, notebooks, and manual tracking methods.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0135",
+      "question": "What makes Eynthra better than basic CRM tools?",
+      "answer": "Eynthra focuses on instant offline-to-online lead capture using AI, while traditional CRMs rely on manual data entry.",
+      "category": "comparison"
+    },
+    {
+      "intent_id": "INTENT_0136",
+      "question": "Does Eynthra support fast follow-ups after meetings?",
+      "answer": "Yes. Leads are instantly available after scanning, allowing immediate follow-ups after meetings.",
+      "category": "sales"
+    },
+    {
+      "intent_id": "INTENT_0137",
+      "question": "Can I track which leads came from which meeting?",
+      "answer": "Yes. Leads can be tagged by meeting, event, or source for easy tracking.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0138",
+      "question": "Can I see my daily sales activity in Eynthra?",
+      "answer": "Yes. Eynthra provides activity timelines and dashboards showing daily lead and follow-up actions.",
+      "category": "analytics"
+    },
+    {
+      "intent_id": "INTENT_0139",
+      "question": "Does Eynthra help sales managers stay organized?",
+      "answer": "Yes. Managers get visibility into leads, follow-ups, and team performance in one dashboard.",
+      "category": "analytics"
+    },
+    {
+      "intent_id": "INTENT_0140",
+      "question": "Can Eynthra be used by founders or solo business owners?",
+      "answer": "Yes. Founders and solo professionals use Eynthra to manage contacts and follow-ups efficiently.",
+      "category": "business"
+    },
+    {
+      "intent_id": "INTENT_0141",
+      "question": "Is Eynthra suitable for B2B businesses?",
+      "answer": "Yes. Eynthra is designed primarily for B2B lead capture and relationship management.",
+      "category": "business"
+    },
+    {
+      "intent_id": "INTENT_0142",
+      "question": "Can Eynthra help during investor meetings or demos?",
+      "answer": "Yes. Eynthra ensures investor and meeting contacts are captured and followed up professionally.",
+      "category": "business"
+    },
+    {
+      "intent_id": "INTENT_0143",
+      "question": "Does Eynthra work well during busy networking sessions?",
+      "answer": "Yes. Eynthra is built for fast lead capture even during high-volume networking sessions.",
+      "category": "events"
+    },
+    {
+      "intent_id": "INTENT_0144",
+      "question": "Can multiple cards be scanned back-to-back?",
+      "answer": "Yes. You can scan multiple business cards consecutively without interruption.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0145",
+      "question": "What if a scanned card has missing details?",
+      "answer": "You can manually edit or add missing information after scanning.",
+      "category": "ocr"
+    },
+    {
+      "intent_id": "INTENT_0146",
+      "question": "Does Eynthra keep a history of edits on leads?",
+      "answer": "Yes. Lead activity history is maintained for transparency and tracking.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0147",
+      "question": "Can Eynthra be used by remote teams?",
+      "answer": "Yes. Eynthra is cloud-based and works well for remote and distributed teams.",
+      "category": "team"
+    },
+    {
+      "intent_id": "INTENT_0148",
+      "question": "Can I restrict what team members can see?",
+      "answer": "Yes. Role-based access control allows you to restrict visibility and permissions.",
+      "category": "team"
+    },
+    {
+      "intent_id": "INTENT_0149",
+      "question": "Does Eynthra support long-term lead tracking?",
+      "answer": "Yes. Leads can be tracked over long sales cycles with full history and follow-ups.",
+      "category": "crm"
+    },
+    {
+      "intent_id": "INTENT_0150",
+      "question": "Is Eynthra suitable for agencies or consultants?",
+      "answer": "Yes. Agencies and consultants use Eynthra to manage multiple client contacts efficiently.",
+      "category": "business"
+    },
+    {
+      "intent_id": "INTENT_0150",
+      "question": "Is Eynthra suitable for agencies or consultants?",
+      "answer": "Yes. Agencies and consultants use Eynthra to efficiently manage multiple client contacts, leads, and workflows. You can get started by logging in or registering at https://eynthrasolution.com/login",
+      "category": "business",
+      "keywords": [
+        "agencies",
+        "consultants",
+        "agency use",
+        "client management",
+        "multi client",
+        "login",
+        "registration",
+        "sign up"
+      ]
+    }
+  ]
+}
