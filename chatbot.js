@@ -9,7 +9,7 @@ const synonymMap = {
   privacy: ["security", "data", "gdpr", "dpdp", "dpdpa", "protection", "policy"],
   demo: ["trial", "sample", "preview", "test", "walkthrough"],
   support: ["help", "contact", "customer", "care", "assistance"],
-  product: ["service", "services", "platform", "software", "system"],
+  // product: ["service", "services", "platform", "software", "system"],
   events: ["event", "expo", "conference", "webinar", "meet"]
 };
 
