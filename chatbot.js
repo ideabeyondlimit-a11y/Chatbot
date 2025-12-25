@@ -225,8 +225,9 @@ function getBotReplies(text) {
   }
 
   // --------------------
-  // THANKS (FUZZY)
+  // THANKS / OK / BYE / END CHAT (FUZZY)
   // --------------------
+
   const thanksWords = [
     "thanks", "thank you", "thx", "ty",
     "thanks a lot", "thankyou",
@@ -234,9 +235,36 @@ function getBotReplies(text) {
     "appreciated", "much appreciated"
   ];
 
+  const okWords = [
+    "ok", "okay", "okey", "okk", "alright",
+    "fine", "cool", "got it", "understood",
+    "makes sense"
+  ];
+
+  const byeWords = [
+    "bye", "goodbye", "bye bye", "see you",
+    "see ya", "later", "talk later",
+    "exit", "close", "end", "stop"
+  ];
+
+  // THANKS
   if (thanksWords.some(t => isFuzzyMatch(msg, t))) {
     return ["😊 You’re welcome! Let me know if you need anything else."];
   }
+
+  // OK / ACKNOWLEDGEMENT
+  if (okWords.some(o => isFuzzyMatch(msg, o))) {
+    return ["👍 Got it! Feel free to ask me anything whenever you’re ready."];
+  }
+
+  // BYE / END CHAT
+  if (byeWords.some(b => isFuzzyMatch(msg, b))) {
+    return [
+      "👋 Thanks for chatting with Eynthra!<br>" +
+      "If you need anything later, I’ll be right here. 😊"
+    ];
+  }
+
 
 
 
