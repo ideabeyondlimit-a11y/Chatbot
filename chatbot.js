@@ -4,6 +4,32 @@ let lead = {
   email: ""
 };
 
+const categoryLinkMap = {
+  brand_overview: "https://eynthrasolution.com/features",
+  product_positioning: "https://eynthrasolution.com/features",
+  platform_access: "https://eynthrasolution.com/features",
+
+  features: "https://eynthrasolution.com/features",
+  ai_processing: "https://eynthrasolution.com/features",
+  ocr_technology: "https://eynthrasolution.com/features",
+
+  pricing: "https://eynthrasolution.com/pricing",
+  subscription_limits: "https://eynthrasolution.com/pricing",
+
+  events: "https://eynthrasolution.com/event-lead-capture",
+  meetings: "https://eynthrasolution.com/event-lead-capture",
+
+  data_security: "https://eynthrasolution.com/privacy",
+  data_ownership: "https://eynthrasolution.com/privacy",
+  privacy: "https://eynthrasolution.com/privacy",
+
+  support: "https://eynthrasolution.com/contact",
+  email_integration: "https://eynthrasolution.com/email-integration",
+
+  legal: "https://eynthrasolution.com/terms"
+};
+
+
 let intents = [];
 
 // --------------------
@@ -311,8 +337,19 @@ function getBotReplies(text) {
 
   // ✅ Return ONLY ONE BEST ANSWER
   if (bestIntent && highestScore > 0) {
-    return [bestIntent.answer];
+    const link =
+      categoryLinkMap[bestIntent.category] ||
+      "https://eynthrasolution.com/features";
+
+    return [
+      `${bestIntent.answer}<br><br>
+    🔗 <a href="${link}" target="_blank" rel="noopener noreferrer">
+      Learn more
+    </a>`
+    ];
   }
+
+
 
   // Fallback
   return [
