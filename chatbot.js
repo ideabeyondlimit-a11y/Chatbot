@@ -1,3 +1,9 @@
+let lead = {
+  step: 0, // 0=name, 1=email, 2=done
+  name: "",
+  email: ""
+};
+
 let intents = [];
 
 // --------------------
@@ -16,23 +22,92 @@ const synonymMap = {
 // --------------------
 // FUZZY MATCH FUNCTION
 // --------------------
-function isSimilar(a, b) {
-  if (!a || !b) return false;
-  a = a.toLowerCase();
-  b = b.toLowerCase();
+// function isSimilar(a, b) {
+//   if (!a || !b) return false;
+//   a = a.toLowerCase();
+//   b = b.toLowerCase();
 
-  if (a === b) return true;
-  if (Math.abs(a.length - b.length) > 2) return false;
+//   if (a === b) return true;
+//   if (Math.abs(a.length - b.length) > 2) return false;
 
-  let matches = 0;
-  const minLen = Math.min(a.length, b.length);
+//   let matches = 0;
+//   const minLen = Math.min(a.length, b.length);
 
-  for (let i = 0; i < minLen; i++) {
-    if (a[i] === b[i]) matches++;
-  }
+//   for (let i = 0; i < minLen; i++) {
+//     if (a[i] === b[i]) matches++;
+//   }
 
-  return matches / Math.max(a.length, b.length) >= 0.7;
+//   return matches / Math.max(a.length, b.length) >= 0.7;
+// }
+
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s]/g, "") // remove symbols
+    .replace(/\s+/g, " ");       // normalize spaces
 }
+
+// Levenshtein Distance
+function levenshtein(a, b) {
+  const matrix = Array.from({ length: b.length + 1 }, () => []);
+
+  for (let i = 0; i <= b.length; i++) matrix[i][0] = i;
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      matrix[i][j] = b[i - 1] === a[j - 1]
+        ? matrix[i - 1][j - 1]
+        : Math.min(
+          matrix[i - 1][j - 1] + 1, // substitution
+          matrix[i][j - 1] + 1,     // insertion
+          matrix[i - 1][j] + 1      // deletion
+        );
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+function similarityScore(a, b) {
+  const distance = levenshtein(a, b);
+  return 1 - distance / Math.max(a.length, b.length);
+}
+
+// 🔥 MASTER FUZZY MATCH
+function isFuzzyMatch(input, target, threshold = 0.75) {
+  if (!input || !target) return false;
+
+  input = normalize(input);
+  target = normalize(target);
+
+  // 1. Exact match
+  if (input === target) return true;
+
+  // 2. Substring match
+  if (input.includes(target) || target.includes(input)) return true;
+
+  // 3. Levenshtein similarity
+  if (similarityScore(input, target) >= threshold) return true;
+
+  // 4. Token-based matching (word-level)
+  const inputTokens = input.split(" ");
+  const targetTokens = target.split(" ");
+
+  let matchedTokens = 0;
+
+  inputTokens.forEach(iWord => {
+    targetTokens.forEach(tWord => {
+      if (similarityScore(iWord, tWord) >= 0.8) {
+        matchedTokens++;
+      }
+    });
+  });
+
+  const tokenScore = matchedTokens / Math.max(inputTokens.length, targetTokens.length);
+  return tokenScore >= 0.6;
+}
+
 
 // --------------------
 // LOAD INTENTS JSON
@@ -41,14 +116,18 @@ fetch("eynthra_intent_level_knowledge_FULL_MERGED[2].json")
   .then(res => res.json())
   .then(data => {
     intents = data.intents || [];
+    // appendBotMessage(
+    //   "👋 <b>Hello! I’m the Eynthra AI Assistant.</b><br><br>" +
+    //   "You can ask me about:<br>" +
+    //   "• Product & Features<br>" +
+    //   "• Pricing & Free Trial<br>" +
+    //   "• Demo & Events<br>" +
+    //   "• Security, Privacy & Compliance<br>" +
+    //   "• Support & Contact"
+    // );
     appendBotMessage(
       "👋 <b>Hello! I’m the Eynthra AI Assistant.</b><br><br>" +
-      "You can ask me about:<br>" +
-      "• Product & Features<br>" +
-      "• Pricing & Free Trial<br>" +
-      "• Demo & Events<br>" +
-      "• Security, Privacy & Compliance<br>" +
-      "• Support & Contact"
+      "Before we begin, may I know your name?"
     );
   })
   .catch(() => {
@@ -65,6 +144,19 @@ input.addEventListener("keydown", e => {
   if (e.key === "Enter") sendMessage();
 });
 
+// function sendMessage() {
+//   const userText = input.value.trim();
+//   if (!userText) return;
+
+//   appendUserMessage(userText);
+//   input.value = "";
+
+//   setTimeout(() => {
+//     const replies = getBotReplies(userText);
+//     replies.forEach(r => appendBotMessage(r));
+//   }, 300);
+// }
+
 function sendMessage() {
   const userText = input.value.trim();
   if (!userText) return;
@@ -73,10 +165,43 @@ function sendMessage() {
   input.value = "";
 
   setTimeout(() => {
+    // 🔹 NAME STEP
+    if (lead.step === 0) {
+      lead.name = userText;
+      lead.step = 1;
+      appendBotMessage(`Nice to meet you, <b>${lead.name}</b> 😊<br>Please share your email address.`);
+      return;
+    }
+
+    // 🔹 EMAIL STEP
+    if (lead.step === 1) {
+      if (!validateEmail(userText)) {
+        appendBotMessage("❌ Please enter a valid email address.");
+        return;
+      }
+
+      lead.email = userText;
+      lead.step = 2;
+
+      appendBotMessage(
+        "✅ Thank you! You can now ask me anything about Eynthra."
+      );
+
+      input.disabled = false;
+
+      // 👉 SEND TO EMAIL / BACKEND
+      sendLeadToAdmin(lead);
+
+      return;
+    }
+
+    // 🔹 NORMAL CHAT
     const replies = getBotReplies(userText);
     replies.forEach(r => appendBotMessage(r));
+
   }, 300);
 }
+
 
 // --------------------
 // BOT LOGIC (SYNONYM + FUZZY)
@@ -86,14 +211,24 @@ function getBotReplies(text) {
   const words = msg.split(/\s+/);
 
   // Greetings
-  if (["hi", "hello", "hey"].includes(msg)) {
+  // Greetings
+  if ([
+    "hi", "hello", "hey", "hii", "hiii", "hey there", "hello there",
+    "hi there", "good morning", "good afternoon", "good evening",
+    "gm", "ge", "good day", "hola"
+  ].includes(msg)) {
     return ["👋 Hello! How can I help you with Eynthra today?"];
   }
 
   // Thanks
-  if (["thanks", "thank you", "thx"].includes(msg)) {
+  if ([
+    "thanks", "thank you", "thx", "ty", "thanks a lot", "thankyou",
+    "many thanks", "thanks!", "thank you!", "appreciate it",
+    "appreciated", "much appreciated"
+  ].includes(msg)) {
     return ["😊 You’re welcome! Let me know if you need anything else."];
   }
+
 
   let bestIntent = null;
   let highestScore = 0;
@@ -142,14 +277,16 @@ function getBotReplies(text) {
   // Fallback
   return [
     `
-❓ I couldn’t find an exact answer.<br><br>
-Try asking about:<br>
-• <a href="https://eynthrasolution.com/product" target="_blank">Product</a><br>
-• <a href="https://eynthrasolution.com/pricing" target="_blank">Pricing</a><br>
-• <a href="https://eynthrasolution.com/features" target="_blank">Features</a><br>
-• <a href="https://eynthrasolution.com/privacy-policy" target="_blank">Privacy & Security</a>
-    `
+🤔 Hmm… I couldn’t find the exact answer to that right now.<br><br>
+But no worries! You can explore these helpful sections:<br><br>
+👉 <a href="https://eynthrasolution.com/product" target="_blank">Product Overview</a><br>
+👉 <a href="https://eynthrasolution.com/pricing" target="_blank">Pricing & Plans</a><br>
+👉 <a href="https://eynthrasolution.com/features" target="_blank">Features</a><br>
+👉 <a href="https://eynthrasolution.com/privacy-policy" target="_blank">Privacy & Security</a><br><br>
+If you’d like, just rephrase your question—I’m here to help 😊
+  `
   ];
+
 }
 
 
@@ -179,4 +316,20 @@ function appendBotMessage(text) {
 
   messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
+}
+
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
+function sendLeadToAdmin(lead) {
+  fetch("https://eynthrasolution.com/lead", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: lead.name,
+      email: lead.email
+    })
+  });
 }
