@@ -210,24 +210,34 @@ function getBotReplies(text) {
   const msg = text.toLowerCase().trim();
   const words = msg.split(/\s+/);
 
-  // Greetings
-  // Greetings
-  if ([
-    "hi", "hello", "hey", "hii", "hiii", "hey there", "hello there",
-    "hi there", "good morning", "good afternoon", "good evening",
+  // --------------------
+  // GREETINGS (FUZZY)
+  // --------------------
+  const greetings = [
+    "hi", "hello", "hey", "hii", "hiii",
+    "hey there", "hello there", "hi there",
+    "good morning", "good afternoon", "good evening",
     "gm", "ge", "good day", "hola"
-  ].includes(msg)) {
+  ];
+
+  if (greetings.some(g => isFuzzyMatch(msg, g))) {
     return ["👋 Hello! How can I help you with Eynthra today?"];
   }
 
-  // Thanks
-  if ([
-    "thanks", "thank you", "thx", "ty", "thanks a lot", "thankyou",
-    "many thanks", "thanks!", "thank you!", "appreciate it",
+  // --------------------
+  // THANKS (FUZZY)
+  // --------------------
+  const thanksWords = [
+    "thanks", "thank you", "thx", "ty",
+    "thanks a lot", "thankyou",
+    "many thanks", "appreciate it",
     "appreciated", "much appreciated"
-  ].includes(msg)) {
+  ];
+
+  if (thanksWords.some(t => isFuzzyMatch(msg, t))) {
     return ["😊 You’re welcome! Let me know if you need anything else."];
   }
+
 
 
   let bestIntent = null;
