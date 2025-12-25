@@ -241,19 +241,20 @@ function getBotReplies(text) {
     const keywords = (intent.keywords || []).map(k => k.toLowerCase());
 
     for (let w of words) {
+
       // Keyword match
       for (let kw of keywords) {
-        if (isSimilar(w, kw)) score += 5;
+        if (isFuzzyMatch(w, kw)) score += 5;
       }
 
       // Category match
-      if (isSimilar(w, category)) score += 4;
+      if (isFuzzyMatch(w, category)) score += 4;
 
       // Synonym match
       for (let key in synonymMap) {
         if (
-          synonymMap[key].some(s => isSimilar(w, s)) &&
-          isSimilar(key, category)
+          synonymMap[key].some(s => isFuzzyMatch(w, s)) &&
+          isFuzzyMatch(key, category)
         ) {
           score += 6;
         }
@@ -262,6 +263,7 @@ function getBotReplies(text) {
       // Question fallback
       if (question.includes(w)) score += 1;
     }
+
 
     if (score > highestScore) {
       highestScore = score;
