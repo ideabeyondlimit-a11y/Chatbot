@@ -5,29 +5,110 @@ let lead = {
 };
 
 const categoryLinkMap = {
+  // --------------------
+  // BRAND / PLATFORM
+  // --------------------
   brand_overview: "https://eynthrasolution.com/features",
   product_positioning: "https://eynthrasolution.com/features",
   platform_access: "https://eynthrasolution.com/features",
+  company_size_fit: "https://eynthrasolution.com/features",
+  freelancer_usecase: "https://eynthrasolution.com/features",
+  small_business_value: "https://eynthrasolution.com/features",
+  daily_operations: "https://eynthrasolution.com/features",
+  global_availability: "https://eynthrasolution.com/features",
+  company_origin: "https://eynthrasolution.com/features",
+  company_location: "https://eynthrasolution.com/features",
 
+  // --------------------
+  // FEATURES / AI / OCR
+  // --------------------
   features: "https://eynthrasolution.com/features",
   ai_processing: "https://eynthrasolution.com/features",
   ocr_technology: "https://eynthrasolution.com/features",
+  card_scanning_process: "https://eynthrasolution.com/features",
+  visiting_card_support: "https://eynthrasolution.com/features",
+  handwriting_recognition: "https://eynthrasolution.com/features",
+  image_upload: "https://eynthrasolution.com/features",
+  mobile_scanning: "https://eynthrasolution.com/features",
+  processing_speed: "https://eynthrasolution.com/features",
+  accuracy_performance: "https://eynthrasolution.com/features",
 
+  // --------------------
+  // PRICING / PLANS
+  // --------------------
   pricing: "https://eynthrasolution.com/pricing",
   subscription_limits: "https://eynthrasolution.com/pricing",
+  trial: "https://eynthrasolution.com/pricing",
+  rates: "https://eynthrasolution.com/pricing",
 
+  // --------------------
+  // EVENTS / MEETINGS
+  // --------------------
   events: "https://eynthrasolution.com/event-lead-capture",
   meetings: "https://eynthrasolution.com/event-lead-capture",
+  usage_capacity: "https://eynthrasolution.com/event-lead-capture",
 
+  // --------------------
+  // SALES / CRM
+  // --------------------
+  sales: "https://eynthrasolution.com/features",
+  sales_challenges: "https://eynthrasolution.com/features",
+  comparison_excel: "https://eynthrasolution.com/features",
+  lead_lifecycle: "https://eynthrasolution.com/features",
+  lead_centralization: "https://eynthrasolution.com/features",
+  lead_assignment: "https://eynthrasolution.com/features",
+  followup_management: "https://eynthrasolution.com/features",
+  pipeline_tracking: "https://eynthrasolution.com/features",
+  lead_context: "https://eynthrasolution.com/features",
+  lead_search: "https://eynthrasolution.com/features",
+  team_collaboration: "https://eynthrasolution.com/features",
+  activity_tracking: "https://eynthrasolution.com/features",
+  data_export: "https://eynthrasolution.com/features",
+  data_import: "https://eynthrasolution.com/features",
+  data_editing: "https://eynthrasolution.com/features",
+  data_deletion: "https://eynthrasolution.com/features",
+  contact: "https://eynthrasolution.com/features",
+
+  // --------------------
+  // SECURITY / PRIVACY
+  // --------------------
   data_security: "https://eynthrasolution.com/privacy",
   data_ownership: "https://eynthrasolution.com/privacy",
   privacy: "https://eynthrasolution.com/privacy",
+  access_control: "https://eynthrasolution.com/privacy",
+  cloud_architecture: "https://eynthrasolution.com/privacy",
+  connectivity_requirement: "https://eynthrasolution.com/privacy",
 
-  support: "https://eynthrasolution.com/contact",
+  // --------------------
+  // EMAIL / INTEGRATION
+  // --------------------
   email_integration: "https://eynthrasolution.com/email-integration",
+  ai_dependency: "https://eynthrasolution.com/email-integration",
+  third_party_independence: "https://eynthrasolution.com/email-integration",
 
-  legal: "https://eynthrasolution.com/terms"
+  // --------------------
+  // SUPPORT
+  // --------------------
+  support: "https://eynthrasolution.com/contact",
+
+  // --------------------
+  // LEGAL / COMPLIANCE
+  // --------------------
+  legal: "https://eynthrasolution.com/terms",
+  terms: "https://eynthrasolution.com/terms",
+  refund: "https://eynthrasolution.com/refund-policy",
+
+  // --------------------
+  // AUTH
+  // --------------------
+  login: "https://eynthrasolution.com/login",
+
+  // --------------------
+  // FALLBACK
+  // --------------------
+  default: "https://eynthrasolution.com/features"
 };
+
 
 
 let intents = [];
@@ -410,3 +491,4 @@ function sendLeadToAdmin(lead) {
     })
   });
 }
+
